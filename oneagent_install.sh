@@ -28,10 +28,10 @@ fi
 
 # Check Parameters
 
-if [ "$#" -lt 4 ]; then
-    echo "Usage: $0 apm_source source_type source_subdir apm_dir [agents]" >&2
-    exit 1
-fi
+# if [ "$#" -lt 3 ]; then
+#     echo "Usage: $0 apm_source source_type source_subdir apm_dir [agents]" >&2
+#     exit 1
+# fi
 
 
 
@@ -71,7 +71,7 @@ esac
 
 
 # Install Agent
-/bin/sh Dynatrace-OneAgent-Linux-1.303.62.20241129-131342.sh  --set-monitoring-mode=fullstack --set-app-log-content-access=true --set-host-group=${DYNATRACE_HOST_GROUP}
+/bin/bash Dynatrace-OneAgent-Linux-1.303.62.20241129-131342.sh  --set-monitoring-mode=fullstack --set-app-log-content-access=true --set-host-group=${DYNATRACE_HOST_GROUP}
 if [ $? -ne 0 ]; then
 	echo "Dynatrace OneAgent installation failed"
 	exit -1
